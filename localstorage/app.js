@@ -6,6 +6,8 @@ const userInfo = [
     "Full Stack Web Application Developer",
     "Karachi",
     "$8000",
+    "<strong>Skills :</strong>",
+    "Html5 Css3 JavaScript MaterialUI Sql ES6 React  <br />  Redux React native node.js Express Mongodb Python"
     
 ];
 
@@ -20,7 +22,12 @@ function myfunction(value){
     ul += "<li>" + value + "</li>"
 }
 
+let input = prompt();
+userInfo.push(input);
+
+
 document.getElementById("info").innerHTML = ul;
+
 
 const employee = {
 
@@ -34,4 +41,7 @@ const employee = {
 document.getElementById("userName").innerHTML = employee.fullName;
 document.getElementById('userpost').innerHTML = employee.Designation;
 
+let learning = "JavaScript basic to advance";
+let output = learning.length;
 
+document.getElementById("len").innerHTML = output;
