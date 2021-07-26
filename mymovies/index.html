@@ -12,8 +12,7 @@ rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3
 
 <title>My Movies</title>
 </head>
-<body>
-    
+<body class="mb-3">  
     <div class="container">
         
         <div class="row m-4 text-center">
@@ -44,7 +43,7 @@ rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3
                 </div>
                 <div class="form-group  col-md-6 my-2">
                     <label for="note">Note (optional)</label>
-                    <input type="text" autocomplete="off" id="note" class="form-control" value="Amezing MOvie">
+                    <input type="text" autocomplete="off" id="note" class="form-control" value="">
                 </div>
                <div class="form-group mt-4">
                    <input type="submit" value="Add Movie" class="btn btn-success rounded-3 ">
@@ -61,11 +60,10 @@ rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3
                 Saved Movies
             </p>
         </div>
+        <div class="row row-cols-1 row-cols-md-3 mx-4 my-6 text-center" id="movie-container">
 
-        <div class="row row-cols-1 row-cols-md-3 mx-4 my-6 text-center" id="movie-container"></div>
-
+        </div>
     </div>
     
 </body>
-
 </html>
