@@ -17,12 +17,35 @@ function handleFormSubmit(e){
         note,
         id: Date.now()
     }
-
-    console.log(newmovie);
-
-
+    listItems.push(newmovie);
+    e.target.reset();
+    displayMovies();
+    console.log(displayMovies);
 }
 
+function displayMovies(){
+    const tempString = listItems.map(item => `
+        <div class="col">
+            <divclass="card md-4 rounded-3 shadow-sm border-success">
+                <div class="card-header py-3 text-white bg-success border-success">
+                    <h4 class="my-0">${item.moviename}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="text-start">
+                        <li><strong>Year :</strong>${item.moviename}</li>
+                        <li><strong>Year :</strong>${item.year}</li>
+                        ${!item.note.length ? "" : `<li><strong>Year :</strong>${item.note}</li>`}
+                    </ul>
+                    <button class="btn btn-lg btn-outline-danger" aria-label="Delete ${item.moviename}" value="${item.id}"></button>
+                </div>
+            </div>
+
+        </div>
+    `).join('');
+    console.log(tempString);
+    
+}
+console.log("worked");
 
 //events listeners
 
