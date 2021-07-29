@@ -22,7 +22,7 @@ function handleFormSubmit(e){
 
     listItems.push(newmovie);
     e.target.reset();
-    displayMovies();
+    movieContainer.dispatchEvent(new CustomEvent('refreshMovies'));
     
 }
 
@@ -40,7 +40,8 @@ function displayMovies(){
                         <li><strong>Year : </strong>${item.year}</li>
                         ${!item.note.length ? "" : `<li><strong>Note : </strong>${item.note}</li>`}
                     </ul>
-             <button class="btn btn-outline-success" aria-label="Delete ${item.moviename}" value="${item.id}">Delete Movie</button>
+             <button class="btn btn-outline-success" aria-label="Delete ${item.moviename}" 
+             value="${item.id}">Delete Movie</button>
                 </div>
             </div>
         </div>
@@ -51,9 +52,32 @@ function displayMovies(){
     // console.log(tempString);
 }
 
+function mirrorStatetoLocalStorage(){
+    localStorage.setItem('movieContainer.list', JSON.stringify(listItems));
+}
+
+function loadinitialUI(){
+    const tempLocalStorage = localStorage.getItem('movieContainer.list');
+    if(tempLocalStorage === null || tempLocalStorage === []) return;
+    const tempMovies = JSON.parse(tempLocalStorage);
+    listItems.push(...tempMovies);
+    movieContainer.dispatchEvent(new CustomEvent('refreshMovies'));
+}
+
+function deleteMovieFromList(id){
+    listItems = listItems.filter(item => item.id !== id);
+    movieContainer.dispatchEvent(new CustomEvent('refreshMovies'));
+}
+
 
 //events listeners
 
 movieForm.addEventListener('submit', handleFormSubmit);
 movieContainer.addEventListener('refreshMovies',displayMovies);
-
+movieContainer.addEventListener('refreshMovies',mirrorStatetoLocalStorage);
+window.addEventListener('DOMContentLoaded', loadinitialUI);
+movieContainer.addEventListener('click', (e) =>{
+    if(e.target.matches('.btn-outline-success')){
+        deleteMovieFromList(Number(e.target.value));
+    };
+});
