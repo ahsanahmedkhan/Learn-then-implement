@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -18,6 +18,12 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+        <h1>Power is Power</h1>
+        <img src="#" alt="Icon"/>
+        
+        <p>Education is the basic need of humanity.</p>
+      </main>
     </div>
   );
 }
