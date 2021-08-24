@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import reactDom from "react-dom";
-
 
 const fname = "Ahsan";
 const lname = "Ahmed";
 
 class Challenge extends Component {
+    
     render() { 
-
         const mystyle = {
             color: "white",
             backgroundColor: "DodgerBlue",

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Button } from "mdbreact";
 import Header from './Components/Header';
 import Welcome from './Components/Welcome';
 import Message from './Components/Message';
@@ -13,8 +12,8 @@ class App extends Component {
    
   render() {
     return (
-      <div>
       
+      <div>
         <Greeting />
         <Message />
         <Counter />
